@@ -1,0 +1,13 @@
+Correct:
+a) SEND + A + TAD + MORE == MONEY
+b) ZEROES + ONES == BINARY. (Питер Мак-Дональд (Peter MacDonald), 1977)
+c) DCLIX + DLXVI == MCCXXV. (Вилли Энгрен (Willy Enggren), 1972)
+d) COUPLE + COUPLE == QUARTET. (Майкл Бакли (Michael Buckley), 1977)
+e) FISH + N + CHIPS == SUPPER. (Роберт Винникомб (Robert Vinnicombe), 1978)
+f) SATURN + URANUS + NEPTUNE + PLUTO == PLANETS. (Вилли Энгрен, 1968)
+g) EARTH + AIR + FIRE + WATER == NATURE. (Герман Нийон (Herman Nijon), 1977)
+h) AN + ACCELERATING + INFERENTIAL + ENGINEERING + TALE + ELITE + GRANT + FEE + ET + CETERA == ARTIFICIAL + INTELLIGENCE.
+i) HARDY + NESTS == NASTY + HERDS.
+
+Wrong:
+SEND + А + TAD + MORE == MONEY
