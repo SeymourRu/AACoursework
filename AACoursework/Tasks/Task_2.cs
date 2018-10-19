@@ -21,46 +21,6 @@ namespace AACoursework.Tasks
             return 0.0;
         }
 
-        private static char[][] GetPermutations(char[] list, int length)
-        {
-            if (length == 1) return list.Select(t => new char[] { t }).ToArray();
-            return GetPermutations(list, length - 1)
-                .SelectMany(t => list.Where(e => !t.Contains(e)).ToArray(),
-                    (t1, t2) => t1.Concat(new char[] { t2 }).ToArray()).ToArray();
-        }
-
-        private static void Swap(ref char a, ref char b)
-        {
-            if (a == b) return;
-
-            a ^= b;
-            b ^= a;
-            a ^= b;
-        }
-
-        private static void GetPermutationsQueued(char[] list, ConcurrentQueue<string> queue)
-        {
-            int x = list.Length - 1;
-            GetPermutationsQueued(list, 0, x, queue);
-        }
-
-        private static void GetPermutationsQueued(char[] list, int k, int m, ConcurrentQueue<string> queue)
-        {
-            if (k == m)
-            {
-                queue.Enqueue(new string(list));
-            }
-            else
-            {
-                for (int i = k; i <= m; i++)
-                {
-                    Swap(ref list[k], ref list[i]);
-                    GetPermutationsQueued(list, k + 1, m, queue);
-                    Swap(ref list[k], ref list[i]);
-                }
-            }
-        }
-
         public static string ProcessAlphametricEntry(string text)
         {
             var letters = text.Where(c => c >= 'A' && c <= 'Z').Distinct().OrderBy(c => c).ToArray();
@@ -70,7 +30,7 @@ namespace AACoursework.Tasks
                 .Select(x => x.index)
                 .ToList();
 
-            var combos = GetPermutations("0123456789".ToArray(), letters.Length)
+            var combos = Combinatorics.GetPermutations("0123456789".ToArray(), letters.Length)
                 .Where(t => notZero.All(z => t[z] != '0')).ToArray();
 
             var finalAnswer = "";
@@ -185,7 +145,7 @@ namespace AACoursework.Tasks
             {
                 try
                 {
-                    GetPermutationsQueued("0123456789".ToArray(), queue);
+                    Combinatorics.GetPermutationsQueued("0123456789".ToArray(), queue);
                 }
                 catch (Exception ex)
                 {
@@ -284,6 +244,5 @@ namespace AACoursework.Tasks
 
             return finalAnswer;
         }
-
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -144,63 +143,6 @@ namespace AACoursework.Tasks
             goto H2;
         }
 
-        private static void Swap(ref char a, ref char b)
-        {
-            if (a == b) return;
-
-            a ^= b;
-            b ^= a;
-            a ^= b;
-        }
-
-        private static void GetPermutation(char[] list, int k, int m, ConcurrentQueue<string> queue)
-        {
-            if (k == m)
-            {
-                queue.Enqueue(new string(list));
-            }
-            else
-                for (int i = k; i <= m; i++)
-                {
-                    Swap(ref list[k], ref list[i]);
-                    GetPermutation(list, k + 1, m, queue);
-                    Swap(ref list[k], ref list[i]);
-                }
-        }
-
-        private static void GetPermutations(char[] list, ConcurrentQueue<string> queue)
-        {
-            int x = list.Length - 1;
-            GetPermutation(list, 0, x, queue);
-        }
-
-        private static bool NextCombination(IList<int> num, int n, int k)
-        {
-            if (k <= 0) return false;
-
-            bool finished;
-            var changed = finished = false;
-
-            for (var i = k - 1; !finished && !changed; i--)
-            {
-                if (num[i] < n - 1 - (k - 1) + i)
-                {
-                    num[i]++;
-                    if (i < k - 1)
-                    {
-                        for (var j = i + 1; j < k; j++)
-                        {
-                            num[j] = num[j - 1] + 1;
-                        }
-                    }
-                    changed = true;
-                }
-                finished = i == 0;
-            }
-
-            return changed;
-        }
-
         public static string AlgorithmHEntryQueued(int n, int m, bool useModifiedVersion)
         {
             var queue = new ConcurrentQueue<string>();
@@ -212,7 +154,6 @@ namespace AACoursework.Tasks
                 {
                     if (useModifiedVersion)
                     {
-                        //MessageBox.Show("Well ok, but yet it is not implemented !");
                         AlgorithmHModified(n, m, queue);
                     }
                     else

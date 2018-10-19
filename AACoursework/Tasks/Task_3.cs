@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -71,7 +70,6 @@ namespace AACoursework.Tasks
             });
 
             var fileName = "task_3_results_" + DateTime.Now.ToString("hh_mm_ss");
-            //var fileName = "debug";
             using (var fileStream = new StreamWriter(fileName, false, System.Text.Encoding.Unicode))
             {
                 fileStream.WriteLine("Used set of elements: " + string.Join(",", sequence));
