@@ -346,6 +346,12 @@ namespace AACoursework
 
         #region Tab4
 
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDown3.Visible = !numericUpDown3.Visible;
+            label7.Visible = !label7.Visible;
+        }
+
         bool Tab4Checks()
         {
             if (string.IsNullOrEmpty(textBox9.Text))
@@ -353,6 +359,27 @@ namespace AACoursework
                 ShowNotification("Empty input");
                 return false;
             }
+
+            var splitedValues = textBox9.Text.Split(new string[] { ",", "-", ";" }, StringSplitOptions.RemoveEmptyEntries);
+            if (splitedValues.Length != 2)
+            {
+                ShowNotification("Text field should be used only for n,m values input");
+                return false;
+            }
+
+            if (checkBox3.Checked)
+            {
+                var n = int.Parse(splitedValues.ElementAt(0));//число
+                var m = int.Parse(splitedValues.ElementAt(1));//кол-во разрядов
+                var selectedConst = numericUpDown3.Value;
+
+                if (!(n >= m * selectedConst))
+                {
+                    ShowNotification("Wrong constant. It should be such constant that n >= m*Const");
+                    return false;
+                }
+            }
+
 
             return true;
         }
@@ -375,12 +402,13 @@ namespace AACoursework
                 var n = int.Parse(splitedValues.ElementAt(0));//число
                 var m = int.Parse(splitedValues.ElementAt(1));//кол-во разрядов
                 var useModVersion = checkBox3.Checked;
+                var selectedConst = (int)numericUpDown3.Value;
 
                 await Task.Run(() =>
                 {
                     try
                     {
-                        processedResult = Task_4.AlgorithmHEntryQueued(n, m, useModVersion);
+                        processedResult = Task_4.AlgorithmHEntryQueued(n, m, useModVersion, selectedConst);
                     }
                     catch (Exception ex)
                     {
@@ -499,5 +527,25 @@ namespace AACoursework
         }
 
         #endregion Tab5
+
+        #region β
+
+        bool TabβChecks()
+        {
+            if (string.IsNullOrEmpty(textBox14.Text))
+            {
+                ShowNotification("Empty input");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion β
     }
 }

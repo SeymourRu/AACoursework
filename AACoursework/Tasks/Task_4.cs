@@ -9,7 +9,7 @@ namespace AACoursework.Tasks
 {
     public static class Task_4
     {
-        private static void AlgorithmH(int n, int m, ConcurrentQueue<string> queue, bool modifiedVersion)
+        private static void AlgorithmH(int n, int m, ConcurrentQueue<string> queue, bool modifiedVersion, int selectedConst)
         {
             var a = new int[m + 1];
             var x = 0;
@@ -17,12 +17,12 @@ namespace AACoursework.Tasks
             H1:
             if (modifiedVersion)
             {
-                a[0] = n;
-                for (int j1 = 1; j1 < m; j1++) //!
+                a[0] = n - m * selectedConst + selectedConst;
+                for (int j1 = 1; j1 < m; j1++)
                 {
-                    a[j1] = 0;
+                    a[j1] = selectedConst;
                 }
-                a[m] = -1;
+                a[m] = selectedConst - 2;
             }
             else
             {
@@ -88,7 +88,7 @@ namespace AACoursework.Tasks
             goto H2;
         }
 
-        public static string AlgorithmHEntryQueued(int n, int m, bool useModifiedVersion)
+        public static string AlgorithmHEntryQueued(int n, int m, bool useModifiedVersion, int selectedConst)
         {
             var queue = new ConcurrentQueue<string>();
             bool finished = false;
@@ -97,7 +97,7 @@ namespace AACoursework.Tasks
             {
                 try
                 {
-                    AlgorithmH(n, m, queue, useModifiedVersion);
+                    AlgorithmH(n, m, queue, useModifiedVersion, selectedConst);
                 }
                 catch (Exception ex)
                 {
