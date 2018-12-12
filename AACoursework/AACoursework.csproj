@@ -59,6 +59,7 @@
     <Compile Include="Tasks\Task_3.cs" />
     <Compile Include="Tasks\Task_4.cs" />
     <Compile Include="Tasks\Task_5.cs" />
+    <Compile Include="Tasks\Task_β.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

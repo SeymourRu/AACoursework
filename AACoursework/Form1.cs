@@ -538,12 +538,76 @@ namespace AACoursework
                 return false;
             }
 
+            if (string.IsNullOrEmpty(textBox15.Text))
+            {
+                ShowNotification("Empty ≺");
+                return false;
+            }
+
             return true;
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private async void button8_Click(object sender, EventArgs e)
         {
+            if (TabβChecks())
+            {
+                button8.Visible = false;
+                var inputValues = textBox14.Text;
+                var processedResult = "";
+                var splitedInequalities = new List<string[]>();
 
+                var inputInequalities = textBox15.Text.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                var splitedValues = inputValues.Split(new string[] { ",", "-", ";" }, StringSplitOptions.RemoveEmptyEntries);
+                inputInequalities.ForEach(x => splitedInequalities.Add(x.Split(new string[] { "<" }, StringSplitOptions.RemoveEmptyEntries)));
+                
+                textBox13.Text = DateTime.Now + ": Calculating in progress..\r\n";
+
+                backgroundWorker6.RunWorkerAsync();
+
+                await Task.Run(() =>
+                {
+                    try
+                    {
+                        processedResult = Task_β.GenerateSubsetsEntryQueued(splitedValues, splitedInequalities);
+                    }
+                    catch (Exception ex)
+                    {
+                        processedResult = "Error occured: " + ex.Message;
+                    }
+                });
+
+                textBox13.Text += DateTime.Now + ":" + processedResult;
+                button8.Visible = true;
+                backgroundWorker6.CancelAsync();
+            }
+        }
+
+        private void backgroundWorker6_DoWork(object sender, DoWorkEventArgs e)
+        {
+            backgroundWorker6.ReportProgress(0);
+
+            for (var i = 0; i <= 100; i++)
+            {
+                if (this.backgroundWorker6.CancellationPending)
+                {
+                    backgroundWorker6.ReportProgress(0);
+                    e.Cancel = true;
+                    return;
+                }
+
+                System.Threading.Thread.Sleep(100);
+                backgroundWorker6.ReportProgress(i);
+
+                if (i == 100)
+                {
+                    i = 0;
+                }
+            }
+        }
+
+        private void backgroundWorker6_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar6.Value = e.ProgressPercentage;
         }
 
         #endregion β

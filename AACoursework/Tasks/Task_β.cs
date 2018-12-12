@@ -10,7 +10,7 @@ namespace AACoursework.Tasks
 {
     public static class Task_β
     {
-        public static string GenerateSubsetsEntryQueued(string[] values)
+        public static string GenerateSubsetsEntryQueued(string[] values, List<string[]> inequalities)
         {
             var queue = new ConcurrentQueue<string>();
             bool finished = false;
@@ -19,13 +19,7 @@ namespace AACoursework.Tasks
             {
                 try
                 {
-                    for (var i = 1; i <= values.Length; i++)
-                    {
-                        foreach (IEnumerable<string> anotherCombination in Combinatorics.Combinations(values, i))
-                        {
-                            Combinatorics.GetPermutationsQueued(string.Join("", anotherCombination).ToArray(), queue);
-                        }
-                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -59,5 +53,10 @@ namespace AACoursework.Tasks
             return "See results in " + fileName;
         }
 
+        public static void TopologicalSort()
+        {
+
+
+        }
     }
 }

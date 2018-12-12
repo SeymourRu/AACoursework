@@ -73,12 +73,6 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker5 = new System.ComponentModel.BackgroundWorker();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -87,6 +81,15 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.textBox14 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker5 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker6 = new System.ComponentModel.BackgroundWorker();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -568,6 +571,89 @@
             this.textBox11.Size = new System.Drawing.Size(375, 81);
             this.textBox11.TabIndex = 9;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.label11);
+            this.tabPage7.Controls.Add(this.textBox15);
+            this.tabPage7.Controls.Add(this.label9);
+            this.tabPage7.Controls.Add(this.label10);
+            this.tabPage7.Controls.Add(this.checkBox5);
+            this.tabPage7.Controls.Add(this.progressBar6);
+            this.tabPage7.Controls.Add(this.textBox13);
+            this.tabPage7.Controls.Add(this.button8);
+            this.tabPage7.Controls.Add(this.textBox14);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(974, 589);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Задание № β";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 51F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(232, 34);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 93);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "{";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 51F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(679, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(37, 93);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "}";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(616, 326);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(115, 17);
+            this.checkBox5.TabIndex = 20;
+            this.checkBox5.Text = "Parralel calculation";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // progressBar6
+            // 
+            this.progressBar6.Location = new System.Drawing.Point(342, 370);
+            this.progressBar6.Name = "progressBar6";
+            this.progressBar6.Size = new System.Drawing.Size(242, 19);
+            this.progressBar6.TabIndex = 19;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(224, 423);
+            this.textBox13.Multiline = true;
+            this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
+            this.textBox13.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox13.Size = new System.Drawing.Size(527, 132);
+            this.textBox13.TabIndex = 18;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(407, 317);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(119, 32);
+            this.button8.TabIndex = 17;
+            this.button8.Text = "Generate";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(288, 45);
+            this.textBox14.Multiline = true;
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(375, 81);
+            this.textBox14.TabIndex = 16;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(808, 1);
@@ -613,86 +699,30 @@
             this.backgroundWorker5.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker5_DoWork);
             this.backgroundWorker5.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker5_ProgressChanged);
             // 
-            // tabPage7
+            // backgroundWorker6
             // 
-            this.tabPage7.Controls.Add(this.label9);
-            this.tabPage7.Controls.Add(this.label10);
-            this.tabPage7.Controls.Add(this.checkBox5);
-            this.tabPage7.Controls.Add(this.progressBar6);
-            this.tabPage7.Controls.Add(this.textBox13);
-            this.tabPage7.Controls.Add(this.button8);
-            this.tabPage7.Controls.Add(this.textBox14);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(974, 589);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Задание № β";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.backgroundWorker6.WorkerReportsProgress = true;
+            this.backgroundWorker6.WorkerSupportsCancellation = true;
+            this.backgroundWorker6.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker6_DoWork);
+            this.backgroundWorker6.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker6_ProgressChanged);
             // 
-            // label9
+            // textBox15
             // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 51F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(232, 34);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 93);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "{";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox15.Location = new System.Drawing.Point(342, 143);
+            this.textBox15.Multiline = true;
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(255, 152);
+            this.textBox15.TabIndex = 23;
             // 
-            // label10
+            // label11
             // 
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 51F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(679, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 93);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "}";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(636, 159);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(115, 17);
-            this.checkBox5.TabIndex = 20;
-            this.checkBox5.Text = "Parralel calculation";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // progressBar6
-            // 
-            this.progressBar6.Location = new System.Drawing.Point(362, 203);
-            this.progressBar6.Name = "progressBar6";
-            this.progressBar6.Size = new System.Drawing.Size(242, 19);
-            this.progressBar6.TabIndex = 19;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(224, 258);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox13.Size = new System.Drawing.Size(527, 297);
-            this.textBox13.TabIndex = 18;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(427, 150);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(119, 32);
-            this.button8.TabIndex = 17;
-            this.button8.Text = "Generate";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(288, 45);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(375, 81);
-            this.textBox14.TabIndex = 16;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 51F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(275, 178);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(37, 93);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "≺";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -787,6 +817,9 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox textBox14;
+        private System.ComponentModel.BackgroundWorker backgroundWorker6;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label11;
     }
 }
 
