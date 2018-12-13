@@ -10,16 +10,25 @@ namespace AACoursework.Tasks
 {
     public static class Task_β
     {
-        public static string GenerateSubsetsEntryQueued(string[] values, List<string[]> inequalities)
+        private static string Replacer(string what, string with, int postition)
+        {
+            what = what.Remove(postition, 1).Insert(postition, with);
+            return what;
+        }
+
+        public static string GenerateSubsetsEntryQueued(string[] values, string[] coefsStr)
         {
             var queue = new ConcurrentQueue<string>();
             bool finished = false;
+
+            var elements = values.Select(x => Int32.Parse(x.ToString())).ToList();
+            var coefs = coefsStr.Select(x => Int32.Parse(x.ToString())).ToList();
 
             var subsetGenerationTask = Task.Run(() =>
             {
                 try
                 {
-
+                    TopologicalSort(elements, coefs, queue);
                 }
                 catch (Exception ex)
                 {
@@ -53,9 +62,16 @@ namespace AACoursework.Tasks
             return "See results in " + fileName;
         }
 
-        public static void TopologicalSort()
+        public static void TopologicalSort(List<int> values, List<int> coefs, ConcurrentQueue<string> queue)
         {
-
+            int j = 0;
+            V1:
+            V2:
+            var currentResult = string.Join("", a.Take(a.Length - 1));
+            queue.Enqueue(currentResult);
+            V3:
+            V4:
+            V5:
 
         }
     }

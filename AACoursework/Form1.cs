@@ -21,6 +21,17 @@ namespace AACoursework
             MessageBox.Show(mess);
         }
 
+        bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             ShowNotification("Курсовая работа по предмету 'Анализ алгоритмов'\r\nВариант № 1\r\nВыполнил студент группы xxx yyy");
@@ -92,16 +103,6 @@ namespace AACoursework
         #endregion Tab1a
 
         #region Tab1b
-        bool IsDigitsOnly(string str)
-        {
-            foreach (char c in str)
-            {
-                if (c < '0' || c > '9')
-                    return false;
-            }
-
-            return true;
-        }
 
         private async void button3_Click(object sender, EventArgs e)
         {
@@ -532,15 +533,16 @@ namespace AACoursework
 
         bool TabβChecks()
         {
-            if (string.IsNullOrEmpty(textBox14.Text))
+
+            if (string.IsNullOrEmpty(textBox14.Text) || !IsDigitsOnly(textBox14.Text))
             {
-                ShowNotification("Empty input");
+                MessageBox.Show("Only digits allowed");
                 return false;
             }
 
-            if (string.IsNullOrEmpty(textBox15.Text))
+            if (string.IsNullOrEmpty(textBox15.Text) || !IsDigitsOnly(textBox15.Text))
             {
-                ShowNotification("Empty ≺");
+                MessageBox.Show("Only digits allowed for coefs");
                 return false;
             }
 
@@ -554,11 +556,9 @@ namespace AACoursework
                 button8.Visible = false;
                 var inputValues = textBox14.Text;
                 var processedResult = "";
-                var splitedInequalities = new List<string[]>();
 
-                var inputInequalities = textBox15.Text.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
                 var splitedValues = inputValues.Split(new string[] { ",", "-", ";" }, StringSplitOptions.RemoveEmptyEntries);
-                inputInequalities.ForEach(x => splitedInequalities.Add(x.Split(new string[] { "<" }, StringSplitOptions.RemoveEmptyEntries)));
+                var inputCoefs = textBox15.Text.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
                 
                 textBox13.Text = DateTime.Now + ": Calculating in progress..\r\n";
 
@@ -568,7 +568,7 @@ namespace AACoursework
                 {
                     try
                     {
-                        processedResult = Task_β.GenerateSubsetsEntryQueued(splitedValues, splitedInequalities);
+                        processedResult = Task_β.GenerateSubsetsEntryQueued(splitedValues, inputCoefs);
                     }
                     catch (Exception ex)
                     {
